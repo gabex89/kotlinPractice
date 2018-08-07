@@ -8,11 +8,50 @@ fun main(args: Array<String>) {
     println("Hello ${args[0]}!")
 
     dayOfWeek()
+    println("----------First assignment----------------")
     println("----------arg: Kotlin----------------")
     firstAssignment()
+
+    println()
+    println("----------Second assignment----------------")
     println("----------arg: 14----------------")
     secondAssignment(args[1])
 
+    println()
+    println("----------Third assignment -----------------")
+    println("----------arg: -----------------")
+    feedFist()
+
+    println()
+    println("----------Fourth assignment -----------------")
+    println("----------arg: -----------------")
+    println(getFortuneCookie())
+
+}
+
+fun getFortuneCookie(): String {
+
+    val fortunes = listOf("You will have a great day!",
+            "Things will go well for you today.",
+            "Enjoy a wonderful day of success.",
+            "Be humble and all will turn out well.",
+            "Today is a good day for exercising restraint.",
+            "Take it easy and enjoy life!",
+            "Treasure your friends because they are your greatest fortune.")
+    println("Enter your birthday")
+    val birthday = readLine()?.toIntOrNull() ?: 1
+    return fortunes[birthday.rem(fortunes.size)]
+}
+
+fun feedFist() {
+    val day = randomDay()
+    val food = "pellets"
+    println("Today is $day adn the fish eat $food ")
+}
+
+fun randomDay(): String {
+    val week = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+    return week[Random().nextInt(7)]
 }
 
 fun dayOfWeek() {
