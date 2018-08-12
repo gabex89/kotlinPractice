@@ -27,10 +27,22 @@ fun main(args: Array<String>) {
     println("----------arg: -----------------")
     println(getFortuneCookie())
 
+    println()
+    println("----------Fifth assignment -----------------")
+    println("----------arg: -----------------")
+    println(shouldChangeWater(randomDay()))
+
+}
+
+fun canAddFish(tankSize: Double, currentFish: List<Int>, fishSize: Int = 2, hasDecorations: Boolean = true): Boolean {
+    return (tankSize * if (hasDecorations) 0.8 else 1.0) >= (currentFish.sum() + fishSize)
+}
+
+fun shouldChangeWater(day: String, temperature: Int = 22, dirty: Int = 20): Boolean {
+    return true
 }
 
 fun getFortuneCookie(): String {
-
     val fortunes = listOf("You will have a great day!",
             "Things will go well for you today.",
             "Enjoy a wonderful day of success.",
@@ -47,6 +59,12 @@ fun feedFist() {
     val day = randomDay()
     val food = "pellets"
     println("Today is $day adn the fish eat $food ")
+    shouldChangeWater(day, 20, 50)
+    shouldChangeWater(day, dirty = 50)
+
+    if (shouldChangeWater(day)) {
+        println("Change the water")
+    }
 }
 
 fun randomDay(): String {
