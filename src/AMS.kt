@@ -39,10 +39,24 @@ fun canAddFish(tankSize: Double, currentFish: List<Int>, fishSize: Int = 2, hasD
 }
 
 fun shouldChangeWater(day: String, temperature: Int = 22, dirty: Int = 20): Boolean {
-    return true
+
+
+    return when {
+        isTooHot(temperature) -> true
+        isDirty(dirty) -> true
+        isSunday(day) -> true
+        else -> false
+    }
 }
 
-fun getFortuneCookie(): String {
+fun isSunday(day: String) = day == "Sunday"
+
+fun isTooHot(temperature: Int) = temperature > 30
+
+fun isDirty(dirty: Int) = dirty > 30
+
+
+private fun getFortuneCookie(): String {
     val fortunes = listOf("You will have a great day!",
             "Things will go well for you today.",
             "Enjoy a wonderful day of success.",
